@@ -56,5 +56,30 @@ public class SpringMokitoTest
         Mockito.when(countryRepo.findAll()).thenReturn(mycountries);//mocking
         Assertions.assertEquals(countryName,countryService.getCountryByName(countryName).getCountryName());
     }
+    @Test
+    @Order(4)
+    public void Test_add()
+    {
+        Country country = new Country(3,"Germany","Berlin");
+        Mockito.when(countryRepo.save(country)).thenReturn(country);
+        Assertions.assertEquals(country,countryService.addCountry(country));
+    }
+    @Test
+    @Order(5)
+    public void Test_update()
+    {
+        Country country = new Country(3,"Germany","Berlin");
+        Mockito.when(countryRepo.save(country)).thenReturn(country);
+        Assertions.assertEquals(country,countryService.updateCountry(country));
+    }
+    @Test
+    @Order(6)
+    public void Test_delete()
+    {
+        Country country = new Country(3,"Germany","Berlin");
+        countryService.deleteCountry(country);
+        Mockito.verify(countryRepo,Mockito.times(1)).delete(country);
+    }
+
 
 }

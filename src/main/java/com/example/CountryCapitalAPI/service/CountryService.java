@@ -52,12 +52,8 @@ public class CountryService {
         countryRepo.save(country);
         return country;
     }
-    public AddResponse deleteCountry(int id)
+    public void deleteCountry(Country country)
     {
-        countryRepo.deleteById(id);
-        AddResponse addResponse = new AddResponse();
-        addResponse.setMessage("Country deleted");
-        addResponse.setId(id);
-        return addResponse;
+        countryRepo.delete(country);
     }
 }
