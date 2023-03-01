@@ -16,8 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootTest(classes = {SpringMokitoTest.class})
-public class SpringMokitoTest
+@SpringBootTest(classes = {ServiceMokitoTest.class})
+public class ServiceMokitoTest
 {
     @Mock
     CountryRepo countryRepo;
